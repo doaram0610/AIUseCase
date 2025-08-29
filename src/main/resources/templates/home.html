@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홈 - AI Use Case</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <div class="header-content">
+                <h1>AI Use Case</h1>
+                <nav class="user-nav">
+                    <div class="user-info" th:if="${user}">
+                        <img th:if="${user.profileImageUrl}" th:src="${user.profileImageUrl}" alt="프로필 이미지" class="profile-image">
+                        <span th:text="${user.nickname}">사용자</span>
+                    </div>
+                    <form th:action="@{/logout}" method="post" class="logout-form">
+                        <button type="submit" class="btn btn-logout">로그아웃</button>
+                    </form>
+                </nav>
+            </div>
+        </header>
+        
+        <main class="home-main">
+            <div class="welcome-section" th:if="${user}">
+                <div class="user-profile">
+                    <div class="profile-image-container">
+                        <img th:if="${user.profileImageUrl}" th:src="${user.profileImageUrl}" alt="프로필 이미지" class="large-profile-image">
+                        <div th:unless="${user.profileImageUrl}" class="default-profile-image">
+                            <span th:text="${user.nickname[0]}">U</span>
+                        </div>
+                    </div>
+                    <div class="user-details">
+                        <h2 th:text="'안녕하세요, ' + ${user.nickname} + '님!'">안녕하세요!</h2>
+                        <p th:if="${user.email}" th:text="'이메일: ' + ${user.email}">이메일</p>
+                        <p th:text="'카카오 ID: ' + ${user.id}">카카오 ID</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <div class="dashboard">
+                    <h3>대시보드</h3>
+                    <div class="dashboard-cards">
+                        <div class="card">
+                            <h4>🔐 인증 상태</h4>
+                            <p>카카오 OAuth2 인증 완료</p>
+                            <span class="status-badge success">활성</span>
+                        </div>
+                        <div class="card">
+                            <h4>📊 세션 정보</h4>
+                            <p>로그인 시간: <span th:text="${#dates.format(#dates.createNow(), 'yyyy-MM-dd HH:mm:ss')}">현재 시간</span></p>
+                        </div>
+                        <div class="card">
+                            <h4>⚙️ 설정</h4>
+                            <p>Spring Security + OAuth2</p>
+                            <span class="status-badge info">구성됨</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="features-section">
+                    <h3>구현된 기능</h3>
+                    <ul class="feature-list">
+                        <li>✅ 카카오 OAuth2 로그인</li>
+                        <li>✅ Spring Security 인증</li>
+                        <li>✅ 사용자 정보 표시</li>
+                        <li>✅ 세션 관리</li>
+                        <li>✅ 로그아웃 기능</li>
+                        <li>✅ 반응형 UI</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 AI Use Case. Spring Boot Security + 카카오 OAuth2 데모</p>
+        </footer>
+    </div>
+</body>
+</html>

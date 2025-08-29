@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 - AI Use Case</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <header class="login-header">
+                <h1>AI Use Case</h1>
+                <p>카카오 계정으로 로그인하세요</p>
+            </header>
+            
+            <main class="login-main">
+                <div class="login-card">
+                    <div class="login-form">
+                        <div th:if="${errorMessage}" class="error-message">
+                            <p th:text="${errorMessage}"></p>
+                        </div>
+                        
+                        <div class="kakao-login-section">
+                            <div class="kakao-info">
+                                <h3>카카오 로그인</h3>
+                                <p>카카오 계정으로 간편하게 로그인할 수 있습니다.</p>
+                                <ul>
+                                    <li>개인정보 보호</li>
+                                    <li>빠른 로그인</li>
+                                    <li>안전한 인증</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="login-buttons">
+                                <a href="/oauth2/authorization/kakao" class="btn btn-kakao">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M10 0C4.48 0 0 3.58 0 8c0 2.95 1.6 5.53 4 6.92V20l3.5-2c1.33.77 2.5 1.2 2.5 1.2V16.92C18.4 15.53 20 12.95 20 10c0-4.42-4.48-8-10-8z"/>
+                                    </svg>
+                                    카카오로 시작하기
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="login-footer">
+                            <p>로그인하면 <a href="#">이용약관</a>과 <a href="#">개인정보처리방침</a>에 동의하는 것으로 간주됩니다.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="back-link">
+                    <a href="/" class="btn btn-secondary">← 메인으로 돌아가기</a>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

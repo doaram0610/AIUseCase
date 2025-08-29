@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Use Case - 카카오 로그인 데모</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Use Case</h1>
+            <p>Spring Boot Security를 이용한 카카오 로그인 인증 데모</p>
+        </header>
+        
+        <main>
+            <div class="welcome-section">
+                <h2>환영합니다!</h2>
+                <p>이 애플리케이션은 Spring Boot Security와 카카오 OAuth2를 활용한 로그인 인증 시스템입니다.</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <h3>🔐 보안</h3>
+                        <p>Spring Security를 통한 안전한 인증</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🚀 OAuth2</h3>
+                        <p>카카오 소셜 로그인 지원</p>
+                    </div>
+                    <div class="feature">
+                        <h3>📱 반응형</h3>
+                        <p>모든 디바이스에서 최적화된 UI</p>
+                    </div>
+                </div>
+                
+                <div class="cta-section">
+                    <a href="/login" class="btn btn-primary">카카오로 로그인</a>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 AI Use Case. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
